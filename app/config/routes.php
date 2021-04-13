@@ -4,7 +4,17 @@ return [
 
     '' => [
         'controller' => 'main',
-        'action' => 'index',
+        'action' => 'index'
     ],
+
+    'add' => [
+        'controller' => 'main',
+        'action' => 'add'
+    ],
+
+    'edit' => [
+        'controller' => 'main',
+        'action' => 'edit'
+    ]
 
 ];

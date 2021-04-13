@@ -14,6 +14,14 @@ class MainController extends Controller {
 
     }
 
+    public function addAction(){
+        $this->view->render('Добавить');
+    }
+
+    public function editAction(){
+        $this->view->render('Изменить');
+    }
+
     public static function errorCode($code){
         http_response_code($code);
         require 'app/views/errors' . $code . '.php';
