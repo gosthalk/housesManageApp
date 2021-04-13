@@ -20,7 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="54b98c24-9471-4544-933c-3c09de0d2ce6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/MainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/MainController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/core/View.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/View.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/lib/Db.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/lib/Db.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/index.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/layouts/default.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/default.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +50,12 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -54,7 +65,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1618316441848</updated>
-      <workItem from="1618316444406" duration="828000" />
+      <workItem from="1618316444406" duration="2490000" />
     </task>
     <servers />
   </component>
@@ -73,9 +84,9 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1618317162627">
+    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1618318460042">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1618317162627" />
+    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1618318460042" />
   </component>
 </project>

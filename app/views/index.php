@@ -1,3 +1,1 @@
-<?php
-
-echo "<h1> Working !</h1>";
+<h1> Working! </h1>

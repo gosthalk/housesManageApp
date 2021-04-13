@@ -14,8 +14,7 @@ class Db {
     }
 
     public function query($sql){
-        $query = $this->db->query($sql);
-        return $query;
+        return $this->db->query($sql);
     }
 
     public function row($sql){

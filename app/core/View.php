@@ -2,7 +2,7 @@
 
 namespace app\core;
 
-use app\models\Main;
+//use app\models\Main;
 
 class View {
 
@@ -15,10 +15,11 @@ class View {
     public function __construct($route){
         $this->route = $route;
         $this->path = $route['action'];
+        //var_dump($this->path);
         //$this->model = new Main();
     }
 
-    public function render($title){
+    public function render($title, $vars = []){
         if(file_exists('app/views/'.$this->path.'.php')) {
             ob_start();
             require 'app/views/' . $this->path . '.php';

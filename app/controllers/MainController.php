@@ -9,12 +9,9 @@ use app\lib\Db;
 
 class MainController extends Controller {
 
-    public $flag = false;
-    public $data;
-
     public function indexAction(){
+        $this->view->render('Главная страница');
 
-        $this->view->render('Главная страница', false, $result, $count, $page);
     }
 
     public static function errorCode($code){
