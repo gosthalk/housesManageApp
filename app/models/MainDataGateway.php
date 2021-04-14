@@ -12,7 +12,6 @@ class MainDataGateway extends Model{
         $districts = $this->db->row("SELECT * FROM districts");
         $housesType = $this->db->row("SELECT * FROM housesTypes");
 
-
         // Заменяем значения в главной таблице из таблиц справочников
 
         for($i=0;$i<count($houses);$i++){
@@ -29,6 +28,10 @@ class MainDataGateway extends Model{
         }
 
         return $houses;
+    }
+
+    public function addHouse(){
+
     }
 
 }
