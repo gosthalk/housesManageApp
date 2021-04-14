@@ -30,7 +30,17 @@ class MainDataGateway extends Model{
         return $houses;
     }
 
-    public function addHouse(){
+    public function addHouse($district, $builtYear, $floors, $houseType){
+
+        $query = "INSERT INTO houses (District, BuiltYear, Floors, HouseType) VALUES ($district, $builtYear, $floors, $houseType)";
+        $this->db->query($query);
+    }
+
+    public function editHouse($id){
+
+    }
+
+    public  function deleteHouse($id){
 
     }
 

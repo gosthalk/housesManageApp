@@ -21,8 +21,8 @@
                     $vars[$i]['BuiltYear'] .'</td><td>'.
                     $vars[$i]['Floors'] .'</td><td>'.
                     $vars[$i]['HouseType'] .'</td>'.
-                    '<td><a style="text-decoration: none" href="/edit.php?edit_id='. $vars[$i]['Id'] .'">&#9998;</a></td>'.
-                    '<td><a style="text-decoration: none" href="/index.php?del_id='. $vars[$i]['Id'] .'">&#10060;</a></td></tr>';
+                    '<td><a style="text-decoration: none" href="/editHouse/'. $vars[$i]['Id'] .'">&#9998;</a></td>'.
+                    '<td><a style="text-decoration: none" href="/deleteHouse/'. $vars[$i]['Id'] .'">&#10060;</a></td></tr>';
             }
             ?>
             </tbody>

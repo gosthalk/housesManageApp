@@ -12,9 +12,14 @@ return [
         'action' => 'addHouse'
     ],
 
-    'editHouse' => [
+    'editHouse/{id:\d+}' => [
         'controller' => 'main',
         'action' => 'editHouse'
+    ],
+
+    'deleteHouse/{id:\d+}' => [
+        'controller' => 'main',
+        'action' => 'deleteHouse'
     ],
 
     'addApartment' => [

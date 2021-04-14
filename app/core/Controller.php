@@ -2,7 +2,7 @@
 
 namespace app\core;
 
-//use app\models\Main;
+use app\models\Main;
 
 abstract class Controller {
     public $route;
@@ -12,7 +12,7 @@ abstract class Controller {
     public function __construct($route){
         $this->route = $route;
         $this->view = new View($route);
-        //$this->main = new Main();
+        $this->main = new Main();
     }
 
 }
