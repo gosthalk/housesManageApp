@@ -7,14 +7,24 @@ return [
         'action' => 'index'
     ],
 
-    'add' => [
+    'addHouse' => [
         'controller' => 'main',
-        'action' => 'add'
+        'action' => 'addHouse'
     ],
 
-    'edit' => [
+    'editHouse' => [
         'controller' => 'main',
-        'action' => 'edit'
+        'action' => 'editHouse'
+    ],
+
+    'addApartment' => [
+        'controller' => 'main',
+        'action' => 'addApartment'
+    ],
+
+    'editApartment' => [
+        'controller' => 'main',
+        'action' => 'editApartment'
     ]
 
 ];
