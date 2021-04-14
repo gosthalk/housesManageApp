@@ -4,28 +4,35 @@ namespace app\controllers;
 
 use app\core\Controller;
 use app\lib\Db;
-//use app\models\Main;
-//use app\models\MainDataGateway;
+use app\models\Main;
+use app\models\MainDataGateway;
 
 class MainController extends Controller {
 
+    public $data;
+
     public function indexAction(){
-        $this->view->render('Главная страница');
 
+        $this->data = new MainDataGateway();
+        $result = $this->data->showHouses();
+
+        $this->view->render('Дома', $result);
     }
 
-    public function addAction(){
-        $this->view->render('Добавить');
+    public function addHouseAction(){
+        $this->view->render('Добавить дома');
     }
 
-    public function editAction(){
-        $this->view->render('Изменить');
+    public function editHouseAction(){
+        $this->view->render('Изменить дом');
     }
 
-    public static function errorCode($code){
-        http_response_code($code);
-        require 'app/views/errors' . $code . '.php';
-        exit;
+    public function addApartmentAction(){
+        $this->view->render('Добавить квартиру');
+    }
+
+    public function editApartmentAction(){
+        $this->view->render('Изменить квартиру');
     }
 
 }

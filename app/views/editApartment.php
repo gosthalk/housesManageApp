@@ -1,1 +1,1 @@
-<h1> editAparment </h1>
+<h1> editApartment </h1>
