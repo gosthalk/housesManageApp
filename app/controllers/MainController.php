@@ -136,6 +136,13 @@ class MainController extends Controller {
 
     public function deleteApartmentAction(){
 
+        $id = $this->route['id'];
+
+        $apartment = $this->gateway->checkApartment($id);
+
+        $this->gateway->deleteApartment($id);
+        $this->main->redirect('/apartments/' . $apartment[0]['HouseId']);
+        die;
     }
 
 }

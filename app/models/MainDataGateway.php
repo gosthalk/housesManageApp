@@ -129,7 +129,12 @@ class MainDataGateway extends Model{
 
     public function editApartment($floor, $houseSquare, $price, $roomsCount, $apartmentPlane, $apartmentNumber, $id){
 
-        $query = "UPDATE apartments SET Floor=$floor, HouseSquare=$houseSquare, Price=$price, RoomsCount=$roomsCount, PlaneImage=$apartmentPlane, ApartmentNumber=$apartmentNumber where id=$id";
+        $query = "UPDATE apartments SET Floor=$floor, HouseSquare=$houseSquare, Price=$price, RoomsCount=$roomsCount, PlaneImage='$apartmentPlane', ApartmentNumber=$apartmentNumber where id=$id";
+        $this->db->query($query);
+    }
+
+    public function deleteApartment($id){
+        $query = "DELETE FROM apartments WHERE id=$id";
         $this->db->query($query);
     }
 
