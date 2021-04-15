@@ -50,6 +50,11 @@ return [
     'apartmentInfo/{id:\d+}' => [
         'controller' => 'main',
         'action' => 'apartmentInfo'
+    ],
+
+    'apartmentPlan/{id:\d+}' => [
+        'controller' => 'main',
+        'action' => 'apartmentPlan'
     ]
 
 ];

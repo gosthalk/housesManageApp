@@ -126,7 +126,7 @@ class MainController extends Controller {
 
             $this->gateway->editApartment($floor, $houseSquare, $price, $roomsCount, $apartmentPlane, $apartmentNumber, $id);
 
-            $this->main->redirect("/apartments/" . $id);
+            $this->main->redirect("/apartments/" . $apartment[0]['HouseId']);
             die;
         }
 
@@ -146,6 +146,21 @@ class MainController extends Controller {
 
     public function apartmentInfoAction(){
 
+        $id = $this->route['id'];
+
+        $this->gateway->checkApartment($id);
+        $apartment = $this->gateway->showApartmentInfo($id);
+
+        $this->view->render('Информация о квартире', $apartment);
+    }
+
+    public function apartmentPlanAction(){
+
+        $id = $this->route['id'];
+
+        $plan = $this->gateway->getApartmentPlan($id);
+
+        $this->view->render('План дома', $plan);
     }
 
 }

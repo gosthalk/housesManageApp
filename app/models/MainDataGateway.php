@@ -141,6 +141,20 @@ class MainDataGateway extends Model{
 
     public function showApartmentInfo($id){
 
+        $apartment = $this->db->row("SELECT * FROM apartments WHERE id=$id");
+        $img = base64_encode($apartment[0]['PlaneImage']);
+        $apartment[0]['PlaneImage'] = $img;
+
+        return  $apartment;
+    }
+
+    public function getApartmentPlan($id){
+
+        $plan = $this->db->row("SELECT PlaneImage from apartments WHERE id=$id");
+        $img = base64_encode($plan[0]['PlaneImage']);
+        $plan[0]['PlaneImage'] = $img;
+
+        return $plan;
     }
 
 }

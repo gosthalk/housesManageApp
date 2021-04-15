@@ -23,12 +23,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/config/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/routes.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/MainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/MainController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/core/View.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/View.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/MainDataGateway.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/MainDataGateway.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/addApartment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/addApartment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/editApartment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/editApartment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/default.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/default.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/apartments.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/apartments.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/showAllApartments.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/showAllApartments.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +81,7 @@
       <updated>1618316441848</updated>
       <workItem from="1618316444406" duration="3971000" />
       <workItem from="1618394358598" duration="17884000" />
-      <workItem from="1618480142308" duration="21742000" />
+      <workItem from="1618480142308" duration="27256000" />
     </task>
     <servers />
   </component>
@@ -104,9 +101,9 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1618501364903">
+    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1618513759059">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1618501364903" />
+    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1618513759059" />
   </component>
 </project>

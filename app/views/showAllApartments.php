@@ -19,13 +19,13 @@
             <tbody>
             <?php
             for($i=0;$i<count($vars);$i++){
-                echo '<tr><th scope="row"><a style="text-decoration: none" href="/apartments/'. $vars[$i]['Id'] .'">'. $vars[$i]['Id'] .'</a></th><td>'.
+                echo '<tr><th scope="row"><a style="text-decoration: none" href="/apartmentInfo/'. $vars[$i]['Id'] .'">'. $vars[$i]['Id'] .'</a></th><td>'.
                     $vars[$i]['HouseId'] .'</td><td>'.
                     $vars[$i]['Floor'] .'</td><td>'.
                     $vars[$i]['HouseSquare'] .'</td><td>'.
                     $vars[$i]['Price'] .'</td><td>'.
                     $vars[$i]['RoomsCount'] .'</td><td>'.
-                    '<a style="text-decoration: none" href="'.$vars[$i]['Id'] .'">&#128269;</a></td><td>'.
+                    '<a style="text-decoration: none" href="/apartmentPlan/'.$vars[$i]['Id'] .'">&#128269;</a></td><td>'.
                     $vars[$i]['ApartmentNumber'] .'</td>'.
                     '<td><a style="text-decoration: none" href="/editApartment/'. $vars[$i]['Id'] .'">&#9998;</a></td>'.
                     '<td><a style="text-decoration: none" href="/deleteApartment/'. $vars[$i]['Id'] .'">&#10060;</a></td></tr>';
