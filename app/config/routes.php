@@ -22,12 +22,17 @@ return [
         'action' => 'deleteHouse'
     ],
 
-    'addApartment' => [
+    'apartments/{id:\d+}' => [
+        'controller' => 'main',
+        'action' => 'apartments'
+    ],
+
+    'addApartment/{id:\d+}' => [
         'controller' => 'main',
         'action' => 'addApartment'
     ],
 
-    'editApartment' => [
+    'editApartment/' => [
         'controller' => 'main',
         'action' => 'editApartment'
     ]

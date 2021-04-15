@@ -17,7 +17,7 @@
             <tbody>
             <?php
             for($i=0;$i<count($vars);$i++){
-                echo '<tr><th scope="row">'. $vars[$i]['Id'] .'</th><td>'. $vars[$i]['District'] .'</td><td>'.
+                echo '<tr><th scope="row"><a style="text-decoration: none" href="/apartments/'. $vars[$i]['Id'] .'">'. $vars[$i]['Id'] .'</a></th><td>'. $vars[$i]['District'] .'</td><td>'.
                     $vars[$i]['BuiltYear'] .'</td><td>'.
                     $vars[$i]['Floors'] .'</td><td>'.
                     $vars[$i]['HouseType'] .'</td>'.
@@ -30,4 +30,4 @@
         <div style="width: 15%;">
             <a href="/addHouse" class="btn btn-success"> Добавить </a>
         </div>
-    </div>
+</div>

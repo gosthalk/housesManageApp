@@ -14,15 +14,17 @@ class MainDataGateway extends Model{
 
         // Заменяем значения в главной таблице из таблиц справочников
 
-        for($i=0;$i<count($houses);$i++){
-            for($j=0;$j<count($districts);$j++){
-                if($houses[$i]['District'] == $districts[$j]['Id']){
-                    $houses[$i]['District'] = $districts[$j]['DistrictName'];
+        if(!empty($houses)) {
+            for ($i = 0; $i < count($houses); $i++) {
+                for ($j = 0; $j < count($districts); $j++) {
+                    if ($houses[$i]['District'] == $districts[$j]['Id']) {
+                        $houses[$i]['District'] = $districts[$j]['DistrictName'];
+                    }
                 }
-            }
-            for($k=0;$k<count($housesType);$k++){
-                if($houses[$i]['HouseType'] == $housesType[$k]['Id']){
-                    $houses[$i]['HouseType'] = $housesType[$k]['TypeName'];
+                for ($k = 0; $k < count($housesType); $k++) {
+                    if ($houses[$i]['HouseType'] == $housesType[$k]['Id']) {
+                        $houses[$i]['HouseType'] = $housesType[$k]['TypeName'];
+                    }
                 }
             }
         }
@@ -60,6 +62,31 @@ class MainDataGateway extends Model{
             return $house;
         }
 
+    }
+
+    public function getApartments($id){
+
+        $apartments = $this->db->row("SELECT * from apartments WHERE id=$id");
+        $rooms = $this->db->row("SELECT * from rooms");
+
+        if(!empty($apartments)) {
+            for ($i = 0; $i < count($rooms); $i++) {
+                if ($apartments[$i]['Rooms'] == $rooms[$i]['Id']) {
+                    $apartments[$i]['Rooms'] = $rooms[$i]['RoomsCount'];
+                }
+            }
+        }
+
+        return $apartments;
+    }
+
+    public function addApartment($houseId, $floor, $houseSquare, $price, $roomsCount, $apartmentPlane, $apartmentNumber){
+
+        //var_dump($apartmentPlane);
+
+        $query = "INSERT INTO apartments (HouseId, Floor, HouseSquare, Price, RoomsCount, PlaneImage, ApartmentNumber) 
+                    VALUES ($houseId, $floor, $houseSquare, $price, $roomsCount, '$apartmentPlane', $apartmentNumber)";
+        $this->db->query($query);
     }
 
 }

@@ -57,12 +57,44 @@ class MainController extends Controller {
 
         $id = $this->route['id'];
 
+        $this->gateway->checkHouse($id);
+
         $this->gateway->deleteHouse($id);
         $this->main->redirect('/');
         die;
     }
 
+    public function apartmentsAction(){
+
+        $id = $this->route['id'];
+
+        $this->gateway->checkHouse($id);
+
+        $apartments = $this->gateway->getApartments($id);
+
+        $this->view->render('Квартиры', $apartments, $id);
+    }
+
     public function addApartmentAction(){
+
+        $id = $this->route['id'];
+
+        $this->gateway->checkHouse($id);
+
+        if(isset($_POST['addApartment'])){
+            $floor = (int)htmlspecialchars($_POST['Floor']);
+            $houseSquare = (float)htmlspecialchars($_POST['HouseSquare']);
+            $roomsCount = (int)htmlspecialchars($_POST['RoomsCount']);
+            $price = (float)htmlspecialchars($_POST['Price']);
+            $apartmentNumber = (int)htmlspecialchars($_POST['ApartmentNumber']);
+            $apartmentPlane = addslashes(file_get_contents($_FILES['ApartmentPlane']['tmp_name']));
+
+            $this->gateway->addApartment($id, $floor, $houseSquare, $price, $roomsCount, $apartmentNumber, $apartmentPlane);
+
+            $this->main->redirect("/apartments/" . $id);
+            die;
+        }
+
         $this->view->render('Добавить квартиру');
     }
 
