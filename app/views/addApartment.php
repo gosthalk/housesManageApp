@@ -3,7 +3,7 @@
     <form action="" method="post" enctype="multipart/form-data">
         <div class="mt-3 form-group">
             <label for="inputFloor"> Этаж </label>
-            <input type="number" name="Floor" class="mt-2 form-control" id="inputFloor" min="1" required>
+            <input type="number" name="Floor" class="mt-2 form-control" id="inputFloor" min="1" max="<?php echo $vars[0]['Floors']; ?>" required>
             <div class="invalid-feedback"> Введите этаж </div>
         </div>
         <div class="mt-3 form-group">

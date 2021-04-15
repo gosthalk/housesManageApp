@@ -80,6 +80,7 @@ class MainController extends Controller {
         $id = $this->route['id'];
 
         $this->gateway->checkHouse($id);
+        $maxFloors = $this->gateway->getMaxFloors($id);
 
         if(isset($_POST['addApartment'])){
             $floor = (int)htmlspecialchars($_POST['Floor']);
@@ -89,13 +90,16 @@ class MainController extends Controller {
             $apartmentNumber = (int)htmlspecialchars($_POST['ApartmentNumber']);
             $apartmentPlane = addslashes(file_get_contents($_FILES['ApartmentPlane']['tmp_name']));
 
-            $this->gateway->addApartment($id, $floor, $houseSquare, $price, $roomsCount, $apartmentNumber, $apartmentPlane);
+            //var_dump($apartmentPlane);
+
+            $this->gateway->addApartment($id, $floor, $houseSquare, $price, $roomsCount, $apartmentPlane, $apartmentNumber);
 
             $this->main->redirect("/apartments/" . $id);
             die;
         }
 
-        $this->view->render('Добавить квартиру');
+        //var_dump($maxFloors);
+        $this->view->render('Добавить квартиру', $maxFloors);
     }
 
     public function editApartmentAction(){

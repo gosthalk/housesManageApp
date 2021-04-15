@@ -64,15 +64,24 @@ class MainDataGateway extends Model{
 
     }
 
+    public function getMaxFloors($id){
+
+        $query = "SELECT Floors from houses where id=$id";
+        return $this->db->row($query);
+    }
+
     public function getApartments($id){
 
-        $apartments = $this->db->row("SELECT * from apartments WHERE id=$id");
+        $apartments = $this->db->row("SELECT * from apartments WHERE HouseId=$id");
         $rooms = $this->db->row("SELECT * from rooms");
 
         if(!empty($apartments)) {
-            for ($i = 0; $i < count($rooms); $i++) {
-                if ($apartments[$i]['Rooms'] == $rooms[$i]['Id']) {
-                    $apartments[$i]['Rooms'] = $rooms[$i]['RoomsCount'];
+
+            for ($i = 0; $i < count($apartments); $i++) {
+                for($j = 0; $j < count($rooms); $j++){
+                    if ($apartments[$i]['RoomsCount'] == $rooms[$j]['Id']) {
+                        $apartments[$i]['RoomsCount'] = $rooms[$j]['RoomsCount'];
+                    }
                 }
             }
         }
@@ -82,10 +91,15 @@ class MainDataGateway extends Model{
 
     public function addApartment($houseId, $floor, $houseSquare, $price, $roomsCount, $apartmentPlane, $apartmentNumber){
 
-        //var_dump($apartmentPlane);
+        //var_dump($houseId);
+        //var_dump($floor);
+        //var_dump($houseSquare);
+        //var_dump($price);
+        //var_dump($roomsCount);
+        //var_dump($apartmentNumber);
 
         $query = "INSERT INTO apartments (HouseId, Floor, HouseSquare, Price, RoomsCount, PlaneImage, ApartmentNumber) 
-                    VALUES ($houseId, $floor, $houseSquare, $price, $roomsCount, '$apartmentPlane', $apartmentNumber)";
+            VALUES ($houseId, $floor, $houseSquare, $price, $roomsCount, '$apartmentPlane', $apartmentNumber)";
         $this->db->query($query);
     }
 
