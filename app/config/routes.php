@@ -22,6 +22,11 @@ return [
         'action' => 'deleteHouse'
     ],
 
+    'apartments' => [
+        'controller' => 'main',
+        'action' => 'showAllApartments'
+    ],
+
     'apartments/{id:\d+}' => [
         'controller' => 'main',
         'action' => 'apartments'
@@ -32,9 +37,14 @@ return [
         'action' => 'addApartment'
     ],
 
-    'editApartment/' => [
+    'editApartment/{id:\d+}' => [
         'controller' => 'main',
         'action' => 'editApartment'
+    ],
+
+    'deleteApartment/{id:\d+}' => [
+        'controller' => 'main',
+        'action' => 'deleteApartment'
     ]
 
 ];

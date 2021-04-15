@@ -32,6 +32,24 @@ class MainDataGateway extends Model{
         return $houses;
     }
 
+    public function showApartments(){
+        $apartments = $this->db->row("SELECT * from apartments");
+        $rooms = $this->db->row("SELECT * from rooms");
+
+        if(!empty($apartments)) {
+
+            for ($i = 0; $i < count($apartments); $i++) {
+                for($j = 0; $j < count($rooms); $j++){
+                    if ($apartments[$i]['RoomsCount'] == $rooms[$j]['Id']) {
+                        $apartments[$i]['RoomsCount'] = $rooms[$j]['RoomsCount'];
+                    }
+                }
+            }
+        }
+
+        return $apartments;
+    }
+
     public function addHouse($district, $builtYear, $floors, $houseType){
 
         $query = "INSERT INTO houses (District, BuiltYear, Floors, HouseType) VALUES ($district, $builtYear, $floors, $houseType)";
@@ -64,6 +82,19 @@ class MainDataGateway extends Model{
 
     }
 
+    public function checkApartment($id){
+
+        $apartment = $this->db->row("SELECT * from apartments where id=$id");
+
+        if(empty($apartment)){
+            echo '<h1> Данная квартира не найдена! </h1>';
+            die;
+        }else{
+            return $apartment;
+        }
+
+    }
+
     public function getMaxFloors($id){
 
         $query = "SELECT Floors from houses where id=$id";
@@ -91,15 +122,14 @@ class MainDataGateway extends Model{
 
     public function addApartment($houseId, $floor, $houseSquare, $price, $roomsCount, $apartmentPlane, $apartmentNumber){
 
-        //var_dump($houseId);
-        //var_dump($floor);
-        //var_dump($houseSquare);
-        //var_dump($price);
-        //var_dump($roomsCount);
-        //var_dump($apartmentNumber);
-
         $query = "INSERT INTO apartments (HouseId, Floor, HouseSquare, Price, RoomsCount, PlaneImage, ApartmentNumber) 
             VALUES ($houseId, $floor, $houseSquare, $price, $roomsCount, '$apartmentPlane', $apartmentNumber)";
+        $this->db->query($query);
+    }
+
+    public function editApartment($floor, $houseSquare, $price, $roomsCount, $apartmentPlane, $apartmentNumber, $id){
+
+        $query = "UPDATE apartments SET Floor=$floor, HouseSquare=$houseSquare, Price=$price, RoomsCount=$roomsCount, PlaneImage=$apartmentPlane, ApartmentNumber=$apartmentNumber where id=$id";
         $this->db->query($query);
     }
 

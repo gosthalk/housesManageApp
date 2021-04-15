@@ -12,9 +12,16 @@ class MainController extends Controller {
 
     public function indexAction(){
 
-        $result = $this->gateway->showHouses();
+        $houses = $this->gateway->showHouses();
 
-        $this->view->render('Дома', $result);
+        $this->view->render('Дома', $houses);
+    }
+
+    public function showAllApartmentsAction(){
+
+        $apartments = $this->gateway->showApartments();
+
+        $this->view->render('Квартиры', $apartments);
     }
 
     public function addHouseAction(){
@@ -103,7 +110,32 @@ class MainController extends Controller {
     }
 
     public function editApartmentAction(){
-        $this->view->render('Изменить квартиру');
+
+        $id = $this->route['id'];
+
+        $apartment = $this->gateway->checkApartment($id);
+        $maxFloors = $this->gateway->getMaxFloors($apartment[0]['HouseId']);
+        $apartment[0]['Floors'] = $maxFloors[0]['Floors'];
+
+        if(isset($_POST['editApartment'])){
+            $floor = (int)htmlspecialchars($_POST['Floor']);
+            $houseSquare = (float)htmlspecialchars($_POST['HouseSquare']);
+            $roomsCount = (int)htmlspecialchars($_POST['RoomsCount']);
+            $price = (float)htmlspecialchars($_POST['Price']);
+            $apartmentNumber = (int)htmlspecialchars($_POST['ApartmentNumber']);
+            $apartmentPlane = addslashes(file_get_contents($_FILES['ApartmentPlane']['tmp_name']));
+
+            $this->gateway->editApartment($floor, $houseSquare, $price, $roomsCount, $apartmentPlane, $apartmentNumber, $id);
+
+            $this->main->redirect("/apartments/" . $id);
+            die;
+        }
+
+        $this->view->render('Изменить квартиру', $apartment);
+    }
+
+    public function deleteApartmentAction(){
+
     }
 
 }
