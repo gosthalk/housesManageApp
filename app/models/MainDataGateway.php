@@ -12,7 +12,7 @@ class MainDataGateway extends Model{
         $districts = $this->db->row("SELECT * FROM districts");
         $housesType = $this->db->row("SELECT * FROM housesTypes");
 
-        // Заменяем значения в главной таблице из таблиц справочников
+        // Заменяем значения в таблице домов из таблиц справочников
 
         if(!empty($houses)) {
             for ($i = 0; $i < count($houses); $i++) {
@@ -59,7 +59,6 @@ class MainDataGateway extends Model{
     public function editHouse($district, $builtYear, $floors, $houseType, $id){
 
         $query = "UPDATE houses SET District=$district, BuiltYear=$builtYear, Floors=$floors, HouseType=$houseType where id=$id";
-        //var_dump($query);
         $this->db->query($query);
     }
 
@@ -106,6 +105,8 @@ class MainDataGateway extends Model{
         $apartments = $this->db->row("SELECT * from apartments WHERE HouseId=$id");
         $rooms = $this->db->row("SELECT * from rooms");
 
+        // Заменяем значения в таблице квартир из таблиц справочников
+
         if(!empty($apartments)) {
 
             for ($i = 0; $i < count($apartments); $i++) {
@@ -136,6 +137,10 @@ class MainDataGateway extends Model{
     public function deleteApartment($id){
         $query = "DELETE FROM apartments WHERE id=$id";
         $this->db->query($query);
+    }
+
+    public function showApartmentInfo($id){
+
     }
 
 }

@@ -7,9 +7,9 @@
             <div class="invalid-feedback"> Введите этаж </div>
         </div>
         <div class="mt-3 form-group">
-            <label for="inputHouseSquare"> Площадь дома </label>
+            <label for="inputHouseSquare"> Площадь квартиры </label>
             <input type="number" step="0.01" name="HouseSquare" class="mt-2 form-control" placeholder="<?php echo $vars[0]['HouseSquare'] ?>" id="inputHouseSquare" min="1" required>
-            <div class="invalid-feedback"> Введите площадь дома </div>
+            <div class="invalid-feedback"> Введите площадь квартиры </div>
         </div>
         <div class="mt-3 form-group">
             <label for="inputPrice"> Цена </label>

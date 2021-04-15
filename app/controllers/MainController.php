@@ -62,6 +62,8 @@ class MainController extends Controller {
 
     public function deleteHouseAction(){
 
+        // Удаляю дом = удаляю все квартиры?
+
         $id = $this->route['id'];
 
         $this->gateway->checkHouse($id);
@@ -97,15 +99,12 @@ class MainController extends Controller {
             $apartmentNumber = (int)htmlspecialchars($_POST['ApartmentNumber']);
             $apartmentPlane = addslashes(file_get_contents($_FILES['ApartmentPlane']['tmp_name']));
 
-            //var_dump($apartmentPlane);
-
             $this->gateway->addApartment($id, $floor, $houseSquare, $price, $roomsCount, $apartmentPlane, $apartmentNumber);
 
             $this->main->redirect("/apartments/" . $id);
             die;
         }
 
-        //var_dump($maxFloors);
         $this->view->render('Добавить квартиру', $maxFloors);
     }
 
@@ -143,6 +142,10 @@ class MainController extends Controller {
         $this->gateway->deleteApartment($id);
         $this->main->redirect('/apartments/' . $apartment[0]['HouseId']);
         die;
+    }
+
+    public function apartmentInfoAction(){
+
     }
 
 }

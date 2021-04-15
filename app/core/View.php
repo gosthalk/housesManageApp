@@ -2,8 +2,6 @@
 
 namespace app\core;
 
-//use app\models\Main;
-
 class View {
 
     public $path;
@@ -15,8 +13,6 @@ class View {
     public function __construct($route){
         $this->route = $route;
         $this->path = $route['action'];
-        //var_dump($this->path);
-        //$this->model = new Main();
     }
 
     public function render($title, $vars = [], $id = 0){

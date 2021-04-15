@@ -45,6 +45,11 @@ return [
     'deleteApartment/{id:\d+}' => [
         'controller' => 'main',
         'action' => 'deleteApartment'
+    ],
+
+    'apartmentInfo/{id:\d+}' => [
+        'controller' => 'main',
+        'action' => 'apartmentInfo'
     ]
 
 ];
