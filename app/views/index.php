@@ -17,7 +17,7 @@
             <tbody>
             <?php
             for($i=0;$i<count($vars);$i++){
-                echo '<tr><th scope="row">'. strval($i+1) .'</th><td>'. $vars[$i]['District'] .'</td><td>'.
+                echo '<tr><th scope="row">'. $vars[$i]['Id'] .'</th><td>'. $vars[$i]['District'] .'</td><td>'.
                     $vars[$i]['BuiltYear'] .'</td><td>'.
                     $vars[$i]['Floors'] .'</td><td>'.
                     $vars[$i]['HouseType'] .'</td>'.

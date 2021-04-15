@@ -36,11 +36,29 @@ class MainDataGateway extends Model{
         $this->db->query($query);
     }
 
-    public function editHouse($id){
+    public function editHouse($district, $builtYear, $floors, $houseType, $id){
 
+        $query = "UPDATE houses SET District=$district, BuiltYear=$builtYear, Floors=$floors, HouseType=$houseType where id=$id";
+        //var_dump($query);
+        $this->db->query($query);
     }
 
     public  function deleteHouse($id){
+
+        $query = "DELETE FROM houses WHERE id=$id";
+        $this->db->query($query);
+    }
+
+    public function checkHouse($id){
+
+        $house = $this->db->row("SELECT * from houses where id=$id");
+
+        if(empty($house)){
+            echo '<h1>Данный дом не найден!</h1>';
+            die;
+        }else{
+            return $house;
+        }
 
     }
 

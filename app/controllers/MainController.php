@@ -10,12 +10,9 @@ use http\Header;
 
 class MainController extends Controller {
 
-    public $data;
-
     public function indexAction(){
 
-        $this->data = new MainDataGateway();
-        $result = $this->data->showHouses();
+        $result = $this->gateway->showHouses();
 
         $this->view->render('Дома', $result);
     }
@@ -27,8 +24,7 @@ class MainController extends Controller {
             $floors = (int)htmlspecialchars($_POST['Floors']);
             $houseType = (int)htmlspecialchars($_POST['HouseType']);
 
-            $this->data = new MainDataGateway();
-            $this->data->addHouse($district, $builtYear, $floors, $houseType);
+            $this->gateway->addHouse($district, $builtYear, $floors, $houseType);
 
             $this->main->redirect('/');
             die;
@@ -38,13 +34,32 @@ class MainController extends Controller {
     }
 
     public function editHouseAction(){
-        var_dump($this->route['id']);
 
-        $this->view->render('Изменить дом');
+        $id = $this->route['id'];
+        $house = $this->gateway->checkHouse($id);
+
+        if(isset($_POST['editHouse'])){
+            $district = (int)htmlspecialchars($_POST['District']);
+            $builtYear = (int)htmlspecialchars($_POST['BuiltYear']);
+            $floors = (int)htmlspecialchars($_POST['Floors']);
+            $houseType = (int)htmlspecialchars($_POST['HouseType']);
+
+            $this->gateway->editHouse($district, $builtYear, $floors, $houseType, $id);
+
+            $this->main->redirect('/');
+            die;
+        }
+
+        $this->view->render('Изменить дом', $house);
     }
 
     public function deleteHouseAction(){
 
+        $id = $this->route['id'];
+
+        $this->gateway->deleteHouse($id);
+        $this->main->redirect('/');
+        die;
     }
 
     public function addApartmentAction(){
